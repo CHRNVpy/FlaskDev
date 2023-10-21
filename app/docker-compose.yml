@@ -1,0 +1,23 @@
+version: '3'
+services:
+  # Контейнер с NoSQL базой данных (замените на желаемую базу данных)
+  nosql-db:
+    image: mongo:4.4 # Пример с использованием MongoDB
+    container_name: nosql-db
+    ports:
+      - "27017:27017" # Порт базы данных (замените на необходимый)
+
+  # Контейнер с Flask-приложением
+  flask-app:
+    build:
+      context: . # Путь к директории с вашим Flask-приложением
+    container_name: flask-app
+    ports:
+      - "8080:8080" # Порт, на котором будет работать Flask
+    depends_on:
+      - nosql-db
+    environment:
+      # Укажите параметры подключения к NoSQL базе данных
+      DATABASE_HOST: nosql-db
+      DATABASE_PORT: 27017 # Порт базы данных (если отличается)
+    restart: always
