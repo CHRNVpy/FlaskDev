@@ -16,7 +16,7 @@ Before running the script, make sure you have the following prerequisites instal
 
 2. Open a terminal or command prompt and navigate to the directory where the script is located.
 
-3. Run the Python script using the following command:
+3. Run the Python script using the following command: ```python alarm.py```
 
 
 
